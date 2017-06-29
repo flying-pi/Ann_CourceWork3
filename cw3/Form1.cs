@@ -28,6 +28,9 @@ namespace cw3
         private INumericMethod _monteCarlo;
         private Action _monteCarlAction;
 
+        private INumericMethod _rectangle;
+        private Action _rectangleAction;
+
         private List<INumericMethod> _methods;
         private List<Action> _recalculationActions;
 
@@ -45,6 +48,16 @@ namespace cw3
 
         private void InitRecalculationAction()
         {
+            _rectangleAction = () =>
+            {
+                if (RectChB.Checked)
+                {
+                    RectLabel.Text = _rectangle.ApplayTo(d => Function(d)).ToString();
+                    return;
+                }
+                RectLabel.Text = "";
+            };
+
             _gaussionAction = () =>
             {
                 if (GaussianChB.Checked)
@@ -67,7 +80,8 @@ namespace cw3
             this._recalculationActions = new List<Action>()
             {
                 _gaussionAction,
-                _monteCarlAction
+                _monteCarlAction,
+                _rectangleAction
             };
         }
 
@@ -75,6 +89,13 @@ namespace cw3
         {
             double error = 0.01;
             Double.TryParse(errorField.Text, out error);
+
+            _rectangle = new RectangleMethod()
+            {
+                LowerAge = -1,
+                UpperAge = 1,
+                ErorValue = error
+            };
 
             _gaussion = new GauseMethod()
             {
@@ -92,7 +113,8 @@ namespace cw3
             this._methods = new List<INumericMethod>()
                 {
                     _gaussion,
-                    _monteCarlo
+                    _monteCarlo,
+                    _rectangle
                 }
                 ;
         }
@@ -222,6 +244,11 @@ namespace cw3
         private void MonteCarloResultChB_CheckedChanged(object sender, EventArgs e)
         {
             _monteCarlAction();
+        }
+
+        private void RectChB_CheckedChanged(object sender, EventArgs e)
+        {
+            _rectangleAction();
         }
     }
 }

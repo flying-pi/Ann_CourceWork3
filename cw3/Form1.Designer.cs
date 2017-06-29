@@ -38,6 +38,8 @@
             this.GaussionResult = new System.Windows.Forms.Label();
             this.MonteCarloResultChB = new System.Windows.Forms.CheckBox();
             this.MonteCarloResult = new System.Windows.Forms.Label();
+            this.RectChB = new System.Windows.Forms.CheckBox();
+            this.RectLabel = new System.Windows.Forms.Label();
             this.table.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,6 +103,8 @@
             this.table.Controls.Add(this.GaussionResult, 1, 2);
             this.table.Controls.Add(this.MonteCarloResultChB, 0, 3);
             this.table.Controls.Add(this.MonteCarloResult, 1, 3);
+            this.table.Controls.Add(this.RectChB, 0, 4);
+            this.table.Controls.Add(this.RectLabel, 1, 4);
             this.table.Dock = System.Windows.Forms.DockStyle.Fill;
             this.table.Location = new System.Drawing.Point(0, 0);
             this.table.Name = "table";
@@ -174,6 +178,27 @@
             this.MonteCarloResult.TabIndex = 8;
             this.MonteCarloResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // RectChB
+            // 
+            this.RectChB.AutoSize = true;
+            this.RectChB.Location = new System.Drawing.Point(12, 208);
+            this.RectChB.Margin = new System.Windows.Forms.Padding(12);
+            this.RectChB.Name = "RectChB";
+            this.RectChB.Size = new System.Drawing.Size(271, 24);
+            this.RectChB.TabIndex = 9;
+            this.RectChB.Text = "Метод Середніх прямокутників";
+            this.RectChB.UseVisualStyleBackColor = true;
+            this.RectChB.CheckedChanged += new System.EventHandler(this.RectChB_CheckedChanged);
+            // 
+            // RectLabel
+            // 
+            this.RectLabel.AutoSize = true;
+            this.RectLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RectLabel.Location = new System.Drawing.Point(319, 196);
+            this.RectLabel.Name = "RectLabel";
+            this.RectLabel.Size = new System.Drawing.Size(218, 48);
+            this.RectLabel.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -200,6 +225,8 @@
         private System.Windows.Forms.Label GaussionResult;
         private System.Windows.Forms.CheckBox MonteCarloResultChB;
         private System.Windows.Forms.Label MonteCarloResult;
+        private System.Windows.Forms.CheckBox RectChB;
+        private System.Windows.Forms.Label RectLabel;
     }
 }
 
